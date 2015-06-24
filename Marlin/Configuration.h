@@ -106,6 +106,11 @@ Here are some standard links for getting your machine calibrated:
 // Enable DELTA kinematics and most of the default configuration for Deltas
 #define DELTA
 
+// Tower position correction
+#define DELTA_TOWER1_CORRECTION 0.0 // front left tower
+#define DELTA_TOWER2_CORRECTION 0.0 // front right tower
+#define DELTA_TOWER3_CORRECTION 0.0 // back middle tower
+
 // Make delta curves from many straight lines (linear interpolation).
 // This is a trade-off between visible corners (not enough segments)
 // and processor overload (too many expensive sqrt calls).
@@ -117,7 +122,7 @@ Here are some standard links for getting your machine calibrated:
 #define DELTA_DIAGONAL_ROD 231.5 // mm (215)
 
 // Horizontal offset from middle of printer to smooth rod center.
-#define DELTA_SMOOTH_ROD_OFFSET 179 // mm (175.0) 
+#define DELTA_SMOOTH_ROD_OFFSET 177.25 // mm (175.0) 
 
 // Horizontal offset of the universal joints on the end effector.
 #define DELTA_EFFECTOR_OFFSET 22.0 // mm (33)
@@ -129,7 +134,7 @@ Here are some standard links for getting your machine calibrated:
 #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET) //(145)
 
 // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-#define DELTA_PRINTABLE_RADIUS 81 // mm should be half of bed print area size
+#define DELTA_PRINTABLE_RADIUS 78 // mm should be half of bed print area size
 
 
 //===========================================================================
@@ -284,15 +289,9 @@ Here are some standard links for getting your machine calibrated:
 
   //120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define  DEFAULT_bedKp 10.00
-  #define  DEFAULT_bedKi .023
-  #define  DEFAULT_bedKd 305.4
-
-  //120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from pidautotune
-  //#define  DEFAULT_bedKp 97.1
-  //#define  DEFAULT_bedKi 1.41
-  //#define  DEFAULT_bedKd 1675.16
+  #define  DEFAULT_bedKp 527.39
+  #define  DEFAULT_bedKi 97.54
+  #define  DEFAULT_bedKd 712.90
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -469,7 +468,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // @section bedlevel
 
 #define ENABLE_AUTO_BED_LEVELING // Delete the comment to enable (remove // at the start of the line)
-#define Z_PROBE_REPEATABILITY_TEST  // If not commented out, Z-Probe Repeatability test will be included if Auto Bed Leveling is Enabled.
+//#define Z_PROBE_REPEATABILITY_TEST  // If not commented out, Z-Probe Repeatability test will be included if Auto Bed Leveling is Enabled.
 
 #ifdef ENABLE_AUTO_BED_LEVELING
 

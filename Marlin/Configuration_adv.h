@@ -148,7 +148,7 @@
   #define Z2_DIR_PIN E2_DIR_PIN
   #define Z2_ENABLE_PIN E2_ENABLE_PIN
 
-  #define Z_DUAL_ENDSTOPS
+  // #define Z_DUAL_ENDSTOPS
 
   #ifdef Z_DUAL_ENDSTOPS
     #define Z2_MAX_PIN 36                     //Endstop used for Z2 axis. In this case I'm using XMAX in a Rumba Board (pin 36)
